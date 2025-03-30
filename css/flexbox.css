@@ -1,0 +1,56 @@
+
+/** op-layout-model:/css/flexbox.css
+ *
+ * @created     2023-05-09  op-layout-flexbox
+ * @copied      2025-03-28  op-layout-flexbox --> op-layout-model
+ * @version     1.0
+ * @package     op-layout-model
+ * @author      Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright   Tomoaki Nagahara All right reserved.
+ */
+
+html {
+	margin:  0;
+	padding: 0;
+	height: 100%;
+}
+
+#body {
+	margin:  0;
+	padding: 0;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+#header-area {
+	top: 0;
+	position: sticky;
+}
+
+#body-area {
+	margin: 0 1.0rem;
+	flex: auto;
+	display: flex;
+	flex-direction: column;
+}
+
+#footer-area {
+	bottom: 0;
+	position: sticky;
+}
+
+#header-area,
+#footer-area {
+	background-color: inherit;
+}
+
+#menu-middle {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+}
+
+#content {
+	flex-grow: 1;
+}
