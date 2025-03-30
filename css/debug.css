@@ -1,0 +1,34 @@
+
+/** op-layout-model:/css/debug.css
+ *
+ * @created     2023-05-09  op-layout-flexbox
+ * @copied      2025-03-30  op-layout-flexbox --> op-layout-model
+ * @version     1.0
+ * @package     op-layout-model
+ * @author      Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright   Tomoaki Nagahara All right reserved.
+ */
+
+/* <?php if( OP()->Config('layout')['debug']['flexbox'] ?? null ): ?> */
+
+#header-area,
+#footer-area,
+#menu-top,
+#menu-bottom {
+	border: 1px solid gray;
+}
+
+#menu-middle {
+	border: 1px dotted green;
+}
+
+#menu-middle > * {
+	margin: 1px;
+	border: 1px solid red;
+}
+
+#content {
+	border: 1px solid blue;
+}
+
+/* <?php endif; ?> */
