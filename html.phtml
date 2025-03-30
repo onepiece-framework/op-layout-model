@@ -1,0 +1,74 @@
+<?php
+/** op-layout-model:/html.phtml
+ *
+ * @created     2023-05-09  op-layout-model:/html.phtml
+ * @copied      2025-03-28  op-layout-model:/html.phtml --> op-layout-model:/html.phtml
+ * @version     1.0
+ * @package     op-layout-flexbox
+ * @author      Tomoaki Nagahara <tomoaki.nagahara@gmail.com>
+ * @copyright   Tomoaki Nagahara All right reserved.
+ */
+
+/** Declare strict
+ *
+ */
+declare(strict_types=1);
+
+/** namespace
+ *
+ */
+namespace OP;
+
+//  Get config.
+$layout = OP()->Config('layout');
+
+//	...
+$template_dir     = RootPath('template');
+/* @var $path_header string */
+/* @var $path_footer string */
+foreach(['header','footer'] as $position){
+	//	...
+	$variable_name = "path_{$position}";
+	//	...
+	if( $path = $layout['path'][$position] ?? null ){
+		$$variable_name = OP()->MetaPath($path);
+	}else{
+		$$variable_name = file_exists($path = "{$template_dir}layout/{$position}.phtml") ? OP()->MetaPath($path) : "flexbox:/{$position}.phtml";
+	}
+}
+/* @var $path_menu_top    string */
+/* @var $path_menu_left   string */
+/* @var $path_menu_right  string */
+/* @var $path_menu_bottom string */
+foreach(['top','bottom','right','left'] as $position){
+	//	...
+	$variable_name = "path_menu_{$position}";
+	//	...
+	if( $path = $layout['path']['menu'][$position] ?? null ){
+		$$variable_name = OP()->MetaPath($path);
+	}else{
+		$$variable_name = file_exists($path = "{$template_dir}layout/menu/{$position}.phtml") ? OP()->MetaPath($path) : "flexbox:/menu/{$position}.phtml";
+	}
+}
+?>
+<!doctype>
+<html>
+	<head>
+		<?php OP()->Template('layout/head.phtml') ?>
+	</head>
+	<body id="body" class="body">
+		<div id="header-area"><?php OP()->Template($path_header) ?></div>
+		<div id="body-area">
+			<div id="menu-top"><?php OP()->Template($path_menu_top) ?></div>
+			<div id="menu-middle">
+				<div id="menu-left" ><?php OP()->Template($path_menu_left) ?></div>
+				<div id="content"   ><?php OP()->Content() ?></div>
+				<div id="menu-right"><?php OP()->Template($path_menu_right) ?></div>
+			</div>
+			<div id="menu-bottom"><?php OP()->Template($path_menu_bottom) ?></div>
+		</div>
+		<div id="footer-area">
+			<?php OP()->Template($path_footer) ?>
+		</div>
+	</body>
+</html>
