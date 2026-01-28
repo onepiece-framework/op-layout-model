@@ -1,0 +1,43 @@
+
+/**	op-layout-model:/css/flexbox.css
+ *
+ * @created     2026-01-28
+ * @license     Apache-2.0
+ * @package     op-layout-model
+ * @copyright   Tomoaki Nagahara
+ */
+
+html, body {
+	height: 100%;
+	margin:    0;
+	padding:   0;
+}
+
+#body {
+	display: flex;
+	flex-direction: column;
+}
+
+#body-area {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow: auto;
+}
+
+#menu-area {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
+}
+
+#center-area {
+	flex: 1 1 auto;
+	min-height: 0;
+	overflow: auto;
+	display: flex;
+}
+
+#main {
+	flex: 1 1 auto;
+	min-width: 0;
+}
