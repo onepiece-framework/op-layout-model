@@ -1,0 +1,41 @@
+<?php
+/**	op-layout-model:/html.phtml
+ *
+ * @created     2026-01-28
+ * @license     Apache-2.0
+ * @package     op-layout-model
+ * @copyright   Tomoaki Nagahara
+ */
+
+/**	Declare strict type
+ *
+ */
+declare(strict_types=1);
+
+/**	Namespace
+ *
+ */
+namespace OP\LAYOUT\MODEL;
+
+?>
+<!doctype>
+<html>
+	<head>
+		<?php OP()->Template('layout/head.phtml') ?>
+	</head>
+	<body id="body">
+		<div><?php OP()->Template('layout/header.phtml') ?></div>
+		<div id="body-area">
+			<div id="menu-area">
+				<div><?php OP()->Template('layout/menu/top.phtml') ?></div>
+				<div id="center-area">
+					<div><?php OP()->Template('layout/menu/left.phtml') ?></div>
+					<main id="main"><?php OP()->Content() ?></main>
+					<div><?php OP()->Template('layout/menu/right.phtml') ?></div>
+				</div>
+				<div><?php OP()->Template('layout/menu/bottom.phtml') ?></div>
+			</div>
+		</div>
+		<div><?php OP()->Template('layout/footer.phtml') ?></div>
+	</body>
+</html>
